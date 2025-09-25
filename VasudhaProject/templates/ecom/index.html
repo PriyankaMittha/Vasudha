@@ -3,37 +3,6 @@
 {% block title %}Home{% endblock title %}
 {% block content %}
 
-{% comment %} <div class="card bg-light p-2">
-  
-    
-</div> {% endcomment %}
-<div class="card bg-light p-4 m-4 mx-auto" style="max-width: 300px;">
-  <h3 class="text-dark">Signup</h3>
-  <hr>
-<form action="{% url 'signup' %}" method="post">
-    {% csrf_token %}
-    <br>
-    <label for="email">Email</label>
-    <div class="form-group">
-        <input type="email" class="from-control p-2" id="email" name="email" required>
-    </div>
-    <label for="password">Password</label>
-    <div class="form-group">
-        <input type="password" class="from-control  p-2" id="actualPassword" name="actualPassword" required>
-    </div>
-    <label for="password">Confirm Password</label>
-    <div class="form-group">
-        <input type="password" class="from-control p-2" id="confirmPassword" name="confirmPassword" required>
-    </div>
-    <br>
-    <button type="submit" class="btn btn-dark">SignIn</button>
-    <br>
-    Already User? <a href="/authentication/login">Login</a>
-    <br>
-
-</form>
-</div>
-
 {% endblock content %}
 
 
