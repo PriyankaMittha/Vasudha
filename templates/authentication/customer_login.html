@@ -1,0 +1,40 @@
+{% extends "ecom/navigation.html" %}
+
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<!-- Centered Header Below Navbar -->
+<div class="container text-center mt-5 mb-4">
+  <h3 class="fw-bold">Login As a...</h3>
+</div>
+
+<!-- Signup Forms -->
+<div class="container d-flex justify-content-center">
+  <div class="row">
+
+    <!-- Customer Signup Form -->
+    <div class="card bg-light p-3 m-2 shadow" style="width: 400px;">
+      <h4 class="text-center text-dark">Customer Signup</h4>
+      <hr>
+      <form action="{% url 'signup_customer' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="customer_email">Username</label>
+          <input type="email" class="form-control p-2" id="customer_email" name="email" required>
+        </div>
+        <div class="form-group mt-2">
+          <label for="customer_password">Password</label>
+          <input type="password" class="form-control p-2" id="customer_password" name="password" required>
+        </div>
+      
+        <button type="submit" class="btn btn-dark  mt-3">Login</button>
+        <a href="{% url 'index' %}" class="float-right text-dark mt-4">Go Back To Homepage</a>
+      
+      </form>
+    </div>
+
+    
+  </div>
+</div>
+{% endblock content %}
