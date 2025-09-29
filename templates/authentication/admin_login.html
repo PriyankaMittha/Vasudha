@@ -9,9 +9,9 @@
     <!-- Customer Login Form -->
     <div class="card bg-light p-3 m-2 shadow" style="width: 400px">
 
-      <h4 class="text-center text-dark">Customer Login</h4>
+      <h4 class="text-center text-dark">Admin Login</h4>
       <hr />
-      <form action="{% url 'customer_login' %}" method="post">
+      <form action="{% url 'admin_login' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
           <label for="customer_email">Email ID</label>
@@ -37,7 +37,7 @@
         <!-- Flex row for buttons -->
         
           <button type="submit" class="btn btn-dark mt-3">Login</button><br>
-          <br>Not a User?<a class="mt-5 m-2" href="{% url 'signup_customer' %}" class="btn btn-dark"
+          <br>Not registered as Admin?<a class="mt-5 m-2" href="{% url 'signup_admin' %}" class="btn btn-dark"
             >Signup</a
           >
         

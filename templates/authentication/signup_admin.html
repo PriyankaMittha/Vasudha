@@ -22,7 +22,7 @@
         ></button>
       </div>
       {% endfor %} {% endif %}
-      <h4 class="text-center text-dark">Customer Signup</h4>
+      <h4 class="text-center text-dark">Admin Signup</h4>
       <hr />
       <form action="{% url 'signup_customer' %}" method="post">
         {% csrf_token %}
@@ -61,9 +61,9 @@
         <!-- Flex row for buttons -->
 
         <button type="submit" class="btn btn-dark mt-3">SignIn</button><br>
-        Already a User?<a
+        Already an Admin?<a
           class="mt-5 m-2"
-          href="{% url 'customer_login' %}"
+          href="{% url 'admin_login' %}"
           class="btn btn-dark"
           >Login</a
         >

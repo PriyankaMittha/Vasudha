@@ -9,17 +9,17 @@ def signup_customer(request):
         pwd2  = request.POST.get('confirm_password')
 
         if pwd1 != pwd2:
-            messages.warning(request, "Passwords do not match.")
+            messages.error(request, "Passwords do not match.")
             return render(request, 'authentication/signup_customer.html')
 
         if User.objects.filter(username=email).exists():
-            messages.warning(request, "Email already exists.")
+            messages.error(request, "Email already exists.")
             return render(request, 'authentication/signup_customer.html')
 
         user = User.objects.create_user(email, email, pwd1)
         user.save()
-        messages.warning(request, "Account created successfully. Please log in.")
-        return redirect('customer_login')      # ← only on success
+        messages.error(request, "Account created successfully. Please log in.")
+        return redirect('signup_customer')      # ← only on success
 
     return render(request, 'authentication/signup_customer.html')
 
@@ -35,17 +35,17 @@ def handlelogout(request):
    
 
 def signup_admin(request):
-    # Logic for admin signup
-    return HttpResponse("signup admin")
+    return render(request, 'authentication/signup_admin.html')
 
 def customer_login(request):
     # Logic for customer signup
+    if request.method == "POST":
+        return HttpResponse("Login sucessfully...")
     return render(request, 'authentication/customer_login.html')
     
 
-def login_admin(request):
-    # Logic for admin signup
-    pass
+def admin_login(request):
+    return render(request, 'authentication/admin_login.html')
 
 
 
