@@ -1,19 +1,33 @@
 {% extends "ecom/navigation.html" %} 
-{% load static %}
+{% load static %} 
 {% block title %}Home{%endblock title %} 
-{% block content %}
+{% block content %} 
+
 <!-- Centered Header Below Navbar -->
-<div class="container text-center mt-5 mb-4">
+<div class="container text-center mt-1 mb-4">
+   
   <h3 class="fw-bold">Signup As a...</h3>
 </div>
 
 <!-- Signup Forms -->
 <div class="container d-flex justify-content-center">
+
   <div class="row">
     <!-- Customer Login Form -->
     <div class="card bg-light p-3 m-2 shadow" style="width: 400px">
-
-      <h4 class="text-center text-dark">Customer Signup</h4>
+       {% for message in messages %}
+<div
+  class="alert alert={{messages.tags}} alert-dismissible fade show" role="alert">
+  <strong></strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{% endfor %}
+        <h4 class="text-center text-dark">Customer Signup</h4>
       <hr />
       <form action="{% url 'signup_customer' %}" method="post">
         {% csrf_token %}
@@ -38,7 +52,7 @@
           />
         </div>
 
-        {% comment %} <div class="form-group mt-2">
+        <div class="form-group mt-2">
           <label for="customer_password">Confirm Password</label>
           <input
             type="password"
@@ -47,18 +61,19 @@
             name="confirm_password"
             required
           />
-        </div> {% endcomment %}
-
+        </div>
 
         <!-- Flex row for buttons -->
-        
-          <button type="submit" class="btn btn-dark mt-3">SignIn</button>
-          <br>Already a User?<a class="mt-5" href="{% url 'customer_login' %}" class="btn btn-dark"
-            >Login</a
-          >
-        
+
+        <button type="submit" class="btn btn-dark mt-3">SignIn</button>
+        <br />Already a User?<a
+          class="mt-5"
+          href="{% url 'customer_login' %}"
+          class="btn btn-dark"
+          >Login</a
+        >
       </form>
     </div>
   </div>
 </div>
-{% endblock content %} 
+{% endblock content %}
