@@ -1,6 +1,8 @@
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, HttpResponse
+from .models import *
 
 def signup_customer(request):
     if request.method == "POST":
@@ -9,7 +11,7 @@ def signup_customer(request):
         pwd2  = request.POST.get('confirm_password')
 
         if pwd1 != pwd2:
-            messages.error(request, "Passwords do not match.")
+            messages.error(request, "Passwords does not match.")
             return render(request, 'authentication/signup_customer.html')
 
         if User.objects.filter(username=email).exists():
@@ -40,7 +42,12 @@ def signup_admin(request):
 def customer_login(request):
     # Logic for customer signup
     if request.method == "POST":
-        return HttpResponse("Login sucessfully...")
+        u = request.POST['email']
+        p = request.POST['actual_password']
+        user = authenticate(username=u, password=p)
+        if user:
+            login(request, user)
+            return HttpResponse("Login sucessfully...")
     return render(request, 'authentication/customer_login.html')
     
 

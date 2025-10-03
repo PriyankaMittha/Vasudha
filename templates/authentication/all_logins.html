@@ -5,7 +5,7 @@
 {% block content %}
 <!-- Move header closer to the navbar -->
 <div class="container text-center mt-3">    <!-- ↓ reduced from mt-5 to mt-3 -->
-  <h3 class="fw-bold mb-4">Signup As a...</h3> <!-- add a small bottom margin -->
+  <h3 class="fw-bold mb-4">Login As a...</h3> <!-- add a small bottom margin -->
 
   <!-- Center both cards and reduce the gap -->
   <div class="row justify-content-center g-4"> <!-- g-4 controls gutter space -->
@@ -14,7 +14,7 @@
         <div class="card-body">
           <h4 class="card-title">Customer</h4>
           <p class="card-text text-dark m-2">Some Text</p>
-          <a href="{% url 'signup_customer' %}" class="btn btn-dark">Go To Customer Signup</a>
+          <a href="{% url 'customer_login' %}" class="btn btn-dark">Go To Customer Login</a>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
         <div class="card-body">
           <h4 class="card-title">Admin</h4>
           <p class="card-text text-dark m-2">Some Text</p>
-          <a href="{% url 'signup_admin' %}" class="btn btn-dark">Go To Admin Signup</a>
+          <a href="{% url 'admin_login' %}" class="btn btn-dark">Go To Admin Login</a>
         </div>
       </div>
     </div>

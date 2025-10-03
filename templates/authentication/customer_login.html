@@ -34,12 +34,10 @@
           />
         </div>
 
-        <!-- Flex row for buttons -->
-        
-          <button type="submit" class="btn btn-dark mt-3">Login</button><br>
-          <br>Not a User?<a class="mt-5 m-2" href="{% url 'signup_customer' %}" class="btn btn-dark"
-            >Signup</a
-          >
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <button type="submit" class="btn btn-dark">Login</button>
+          <a class="float-right" href="{% url 'signup_customer' %}" class="btn btn-dark" >Create Account</a >
+        </div>
         
       </form>
     </div>
